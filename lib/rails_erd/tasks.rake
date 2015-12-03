@@ -1,3 +1,6 @@
+require 'rails_erd/custom'
+
+
 def say(message)
   puts message unless Rake.application.options.silent
 end
@@ -45,4 +48,15 @@ namespace :erd do
 end
 
 desc "Generate an Entity-Relationship Diagram based on your models"
-task :erd => "erd:generate"
+task :erd => "erd:generate" do
+  say "Usage: rake erd class=<classname> output=-<outputfile> depth=<traversal depth>"
+  if ENV['class'] == nil
+    say "Required field: Root Class node to start with"
+  elsif ENV['output'] == nil
+    say "Required field: output file name"
+  elsif ENV['depth'] == nil
+    say "Required field: depth to find child classes"
+  end
+  
+  RailsERD::Custom.new(ENV['class'], ENV['output'], ENV['depth'].to_i)
+end
