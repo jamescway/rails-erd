@@ -2,11 +2,11 @@ $:.push File.expand_path("../lib", __FILE__)
 require "rails_erd/version"
 
 Gem::Specification.new do |s|
-  s.name        = "rails-erd"
+  s.name        = "jw-rails-erd"
   s.version     = RailsERD::VERSION
   s.authors     = ["Rolf Timmermans"]
   s.email       = ["r.timmermans@voormedia.com"]
-  s.homepage    = "https://github.com/voormedia/rails-erd"
+  s.homepage    = "https://github.com/jamescway/rails-erd"
   s.summary     = "Entity-relationship diagram for your Rails models."
   s.description = "Automatically generate an entity-relationship diagram (ERD) for your Rails models."
   s.license     = "MIT"
